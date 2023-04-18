@@ -13,7 +13,7 @@ import numpy as np
 import math
 
 
-st.markdown('# Rock fragmentation analysis')
+st.markdown('# Grain size analysis')
 st.markdown('## semi-Decorous edition')
 
 
@@ -61,7 +61,7 @@ st.image(plot_fig, caption='Masked Image')
 fig, ax = plt.subplots()
 df_masks['area'].hist(bins=100,ax=ax)
 
-ax.axvline(x=df_masks['area'].quantile(0.8), c='r', label='P80')
+ax.axvline(x=df_masks['area'].quantile(0.5), c='r', label='Median')
 ax.set_ylabel(f'Area {units}^2')
 ax.set_xlabel('Number of Fragments')
 plt.legend()
@@ -72,7 +72,7 @@ st.pyplot(fig)
 
 fig, ax = plt.subplots()
 df_masks['diameter'].hist(bins=100,ax=ax)
-ax.axvline(x=df_masks['diameter'].quantile(0.8), c='r', label='P80')
+ax.axvline(x=df_masks['diameter'].quantile(0.5), c='r', label='Median')
 ax.set_ylabel(f'Diameter {units}')
 ax.set_xlabel('Number of Fragments')
 plt.legend()
